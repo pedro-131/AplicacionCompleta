@@ -12,17 +12,34 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-public class NuevoDocumento extends JFrame{
-	private JTextField textField;
+/**
+ * La clase nuevo documento abre una nueva ventan en la que podremos introducir información, guardarla y asignar un nombre.
+ * @author pedro
+ *
+ */
 
+public class NuevoDocumento extends JFrame{
+	
+	private JTextField textField;
 	private JEditorPane editorPane;
 	private JButton btnGuardar;
 	private JRadioButton btnCompartido;
 	private JLabel lblNewLabel;
 	
+	/**
+	 * Construye un nuevo documento con los datos en blanco.
+	 */
+	
 	public NuevoDocumento() {
 		this("","",false);
 	}
+	
+	/**
+	 * Crea un documento con información ya existente.
+	 * @param nombre Nombre del documento
+	 * @param texto Contenido del documento
+	 * @param compartido Compartido al resto de usuarios en la base de datos
+	 */
 	
 	public NuevoDocumento(String nombre, String texto, boolean compartido) {
 		setSize(500,600);
@@ -58,9 +75,19 @@ public class NuevoDocumento extends JFrame{
 		cargarFichero(nombre,texto,compartido);
 	}
 	
+	/**
+	 * 
+	 * @return Devuelve el texto del editorPane
+	 */
+	
 	public String getEditorPane() {
 		return editorPane.getText();
 	}
+	
+	/**
+	 * 
+	 * @return Devuelve si el documento está compartido
+	 */
 	
 	public int getCompartido() {
 		int b=0;
@@ -70,9 +97,18 @@ public class NuevoDocumento extends JFrame{
 		return b;
 	}
 	
+	/**
+	 * 
+	 * @return Nombre del fichero
+	 */
+	
 	public String getNombreFichero() {
 		return textField.getText();
 	}
+	
+	/**
+	 * Acción de guardar del btnGuardar.
+	 */
 	
 	public void listenerGuardar() {
 		btnGuardar.addActionListener(new ActionListener() {
@@ -90,6 +126,13 @@ public class NuevoDocumento extends JFrame{
 		});
 	}
 	
+	/**
+	 * Carga los datos del documento en la interfaz
+	 * @param nombre nombre del documento
+	 * @param texto Texto del documento
+	 * @param compartido Si el documento es compartido
+	 */
+	
 	public void cargarFichero(String nombre, String texto, Boolean compartido) {
 		
 		this.btnCompartido.setSelected(compartido);
@@ -98,6 +141,10 @@ public class NuevoDocumento extends JFrame{
 		setTitle(nombre);
 		
 	}
+	
+	/**
+	 * Accede a la base de datos y guarda/sobreescribe los datos del documento. 
+	 */
 	
 	public void guardar() {
 		int x=1;

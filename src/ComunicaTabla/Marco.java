@@ -13,6 +13,12 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Marco de inicio de sesión del programa, con usuario y contraseña.
+ * @author pedro
+ *
+ */
+
 public class Marco extends JFrame{
 	
 	private JTextField campoUsuario;
@@ -22,6 +28,10 @@ public class Marco extends JFrame{
 	
 	private MenuUsuario ventanaUsuario;
 
+	/**
+	 * Genera la estructura inicial y definitiva de la ventana.
+	 */
+	
 	public Marco() {
 		setLocation(500,300);
 		setSize(360,280);
@@ -68,6 +78,10 @@ public class Marco extends JFrame{
 		setDefaultCloseOperation(this.getDefaultCloseOperation());
 	}
 	
+	/**
+	 * Añade el listener del botón de inicio de sesión. Accederá a la base de datos con las credenciales.
+	 */
+	
 	public void listenerCredenciales() {
 		botonInicioSesion.addActionListener(new ActionListener() {
 
@@ -87,9 +101,18 @@ public class Marco extends JFrame{
 		});
 	}
 	
+	/**
+	 * Convierte en visible el label de inicio de sesión incorrecto.
+	 * @param tof Muestra o no.
+	 */
+	
 	public void credencialesMsgSwitch(Boolean tof) {
 		msgCredenciales.setVisible(tof);
 	}
+	
+	/**
+	 * Cierra la ventana
+	 */
 	
 	public void cerrarVentana() {
 		this.dispose();

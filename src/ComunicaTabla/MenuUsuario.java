@@ -30,9 +30,6 @@ import javax.swing.JList;
 
 public class MenuUsuario extends JFrame{
 
-	/**
-	 * 
-	 */
 	private JButton btnCerrar;
 	private JButton btnCambiar;
 	
